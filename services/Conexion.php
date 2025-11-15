@@ -10,7 +10,7 @@ class Conexion
         define("DATABASE", "demo_labotario_11");
         define("PORT", 3306);
         define("CHARSET", "utf8");
-        $dsn = "mysql:host=SERVIDOR;dbname=DATABASE;charset=CHARSET";
+        $dsn = "mysql:host=SERVIDOR;port:PORT;dbname=DATABASE;charset=CHARSET";
         try {
             $opciones = [
                 PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
