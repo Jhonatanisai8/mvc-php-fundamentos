@@ -1,7 +1,7 @@
 <?php
 require_once "model/Categoria.php";
 
-class ControladorCategoria
+class ControllerCategoria
 {
     private $modelo;
 
@@ -10,9 +10,22 @@ class ControladorCategoria
         $this->modelo = new Categoria();
     }
 
-    public function listar_clientes()
+    public function listar()
     {
         $categorias = $this->modelo->listar_categorias();
-        return $categorias;
+        require_once "view/categoria/listar_categorias.php";
+    }
+
+    public function nuevo()
+    {
+        require_once "view/categoria/nuevo.php";
+    }
+
+    public function grabar()
+    {
+        $nombre = $_POST['nombre'];
+        $estado = $_POST['estado'];
+        $this->modelo->registrar($nombre, $estado);
+        header("location:index.php");
     }
 }

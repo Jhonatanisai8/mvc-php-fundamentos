@@ -16,4 +16,11 @@ class Categoria
         $stm = $this->conPDO->query($sql);
         return $stm->fetchAll();
     }
+
+    public function registrar($nombre, $estado)
+    {
+        $sql = "INSERT INTO categoria(nombre,estado) VALUES(:nombre,:estado)";
+        $stmt = $this->conPDO->prepare($sql);
+        return $stmt->execute([$nombre, $estado]);
+    }
 }
